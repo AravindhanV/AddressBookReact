@@ -1,0 +1,126 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    background-color: #f7f7f7;
+    padding: 30px 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .main-content .header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 25px;
+  }
+  
+  .addr-detail-text {
+    font: normal normal bold 24px/25px Roboto;
+    letter-spacing: 0px;
+    color: #42515f;
+    opacity: 1;
+  }
+  
+  .addr-count {
+    background-color: #008cff;
+    color: #ffffff;
+    border-radius: 42%;
+    font-size: 16px;
+    width: 26px;
+    text-align: center;
+    display: inline-block;
+  }
+  
+  .add-button {
+    font: normal normal normal 22px/29px Roboto;
+    letter-spacing: 0px;
+    color: #ffffff;
+    opacity: 1;
+    background: #008cff 0% 0% no-repeat padding-box;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 18px;
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  .add-button img {
+    width: 24px;
+    height: 24xp;
+    margin-right: 10px;
+  }
+  
+  .table-main {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    table-layout: fixed;
+  }
+  
+  td,
+  th {
+    text-align: left;
+    padding: 5px 8px;
+  }
+  
+  th {
+    color: #658292;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 900;
+    font-family: "Lato", sans-serif;
+  }
+  
+  td {
+    color: #3d3d3d;
+    font-size: 16px;
+    line-height: 19px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+  }
+  
+  tbody tr {
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    background-color: white;
+  }
+  
+  tbody td {
+    padding: 23px 0px;
+  }
+  
+  tbody td:first-of-type,
+  thead th:first-of-type {
+    padding-left: 30px;
+  }
+  
+  tbody td:last-of-type,
+  thead th:last-of-type {
+    padding-right: 30px;
+  }
+  
+  td div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  td img {
+    height: 28px;
+  }
+  
+  td img:hover {
+    cursor: pointer;
+  }
