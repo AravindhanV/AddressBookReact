@@ -80,6 +80,7 @@
     line-height: 22px;
     font-weight: 900;
     font-family: "Lato", sans-serif;
+    flex:1;
   }
   
   td {
