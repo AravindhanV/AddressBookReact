@@ -10,6 +10,7 @@ function App() {
         <Routes>
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/add" element={<ContactForm />} />
+          <Route exact path="/edit/:id" element={<ContactForm />} />
         </Routes>
       </BrowserRouter>
     </div>
