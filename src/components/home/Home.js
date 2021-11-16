@@ -4,6 +4,9 @@ import addIcon from '../../assets/icons/add-24px.svg'
 import deleteIcon from '../../assets/icons/delete-black-18dp.svg';
 import editIcon from '../../assets/icons/create-black-18dp.svg';
 import { Link } from 'react-router-dom';
+import ContactService from '../../services/ContactService';
+
+let contactService = new ContactService();
 
 class Home extends React.Component {
     constructor(props) {
@@ -14,9 +17,19 @@ class Home extends React.Component {
 
     }
 
+    getAllContacts = () => {
+        contactService.getAllContacts()
+            .then(responseData => {
+                console.log("Data received after GET Call " + responseData.data);
+                this.setState({ contactArray: responseData.data });
+            }).catch(error => {
+                console.log("Error while fetching Contact List\nError : " + JSON.stringify(error));
+            })
+    }
+
     render() {
         return (
-            <div className="main-content">
+            <div className="main-content" onLoad={this.getAllContacts}>
                 <div className="header-content">
                     <div className="addr-detail-text">
                         Person Details

@@ -1,5 +1,5 @@
 import config from '../config/config';
-import AxiosService from './axios-service'
+import AxiosService from './AxiosService';
 
 export default class ContactService {
     baseUrl = config.baseUrl;
@@ -12,7 +12,7 @@ export default class ContactService {
     }
 
     getContacts(id) {
-        return (await AxiosService.getService(`${this.baseUrl}addressbook/${id}`));
+        return AxiosService.getService(`${this.baseUrl}addressbook/${id}`);
     }
 
     updateContacts(data) {
