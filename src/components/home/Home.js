@@ -8,18 +8,18 @@ import { Link } from 'react-router-dom';
 class Home extends React.Component {
     render() {
         return (
-            <div class="main-content">
-                <div class="header-content">
-                    <div class="addr-detail-text">
+            <div className="main-content">
+                <div className="header-content">
+                    <div className="addr-detail-text">
                         Person Details
-                        <div class="addr-count">0</div>
+                        <div className="addr-count">0</div>
                     </div>
-                    <Link to="/add" class="add-button">
+                    <Link to="/add" className="add-button">
                         <img src={addIcon} alt="" />Add Person</Link
                     >
                 </div>
-                <div class="table-main">
-                    <table id="table-display" class="table">
+                <div className="table-main">
+                    <table id="table-display" className="table">
                         <thead>
                             <tr>
                                 <th style={{ width: '12%' }}>

@@ -1,6 +1,7 @@
 import React from 'react';
 import './ContactForm.css';
 import closeButton from '../../assets/icons/close_button.png';
+import { Link } from 'react-router-dom';
 
 class ContactForm extends React.Component {
     render() {
@@ -12,9 +13,9 @@ class ContactForm extends React.Component {
                 >
                     <div className="form-head">
                         <h1 className="form-head-title">Person Address Form</h1>
-                        <a href="home.html" className="close-button">
+                        <Link to="/home" className="close-button">
                             <img src={{ closeButton }} alt="close button"
-                            /></a>
+                            /></Link>
                     </div>
                     <div className="row-content">
                         <label className="label text" htmlFor="name">Full Name</label>
