@@ -3,6 +3,7 @@ import './Home.css';
 import addIcon from '../../assets/icons/add-24px.svg'
 import deleteIcon from '../../assets/icons/delete-black-18dp.svg';
 import editIcon from '../../assets/icons/create-black-18dp.svg';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
     render() {
@@ -13,8 +14,8 @@ class Home extends React.Component {
                         Person Details
                         <div class="addr-count">0</div>
                     </div>
-                    <a href="../pages/contact_form.html" class="add-button">
-                        <img src={addIcon} alt="" />Add Person</a
+                    <Link to="/add" class="add-button">
+                        <img src={addIcon} alt="" />Add Person</Link
                     >
                 </div>
                 <div class="table-main">
