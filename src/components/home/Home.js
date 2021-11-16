@@ -6,6 +6,14 @@ import editIcon from '../../assets/icons/create-black-18dp.svg';
 import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            contactArray: []
+        };
+
+    }
+
     render() {
         return (
             <div className="main-content">
