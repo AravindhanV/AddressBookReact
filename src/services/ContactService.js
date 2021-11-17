@@ -11,15 +11,15 @@ export default class ContactService {
         return AxiosService.getService(`${this.baseUrl}addressbook`);
     }
 
-    getContacts(id) {
+    getContact(id) {
         return AxiosService.getService(`${this.baseUrl}addressbook/${id}`);
     }
 
-    updateContacts(data) {
-        return AxiosService.putService(`${this.baseUrl}addressbook/${data.id}`, data);
+    updateContact(data, id) {
+        return AxiosService.putService(`${this.baseUrl}addressbook/${id}`, data);
     }
 
-    deleteContacts(data) {
+    deleteContact(data) {
         return AxiosService.deleteService(`${this.baseUrl}addressbook/` + data);
     }
 }

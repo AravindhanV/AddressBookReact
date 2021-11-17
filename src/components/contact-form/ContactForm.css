@@ -149,3 +149,16 @@
   #addButton {
     margin-right: 30px;
   }
+
+  .displaymessage{
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }

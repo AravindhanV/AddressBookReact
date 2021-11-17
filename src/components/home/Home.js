@@ -1,8 +1,6 @@
 import React from 'react';
 import './Home.css';
 import addIcon from '../../assets/icons/add-24px.svg'
-import deleteIcon from '../../assets/icons/delete-black-18dp.svg';
-import editIcon from '../../assets/icons/create-black-18dp.svg';
 import { Link } from 'react-router-dom';
 import ContactService from '../../services/ContactService';
 import Display from '../display/Display';

@@ -48,6 +48,7 @@ const Display = (props) => {
                             <td>{contact.city}</td>
                             <td> {contact.state}</td>
                             <td>{contact.zip}</td>
+                            <td>{contact.phoneNumber}</td>
                             <td><img src={deleteIcon} onClick={() => remove(contact.id)} alt="delete" />
                                 <Link to={"/edit/" + contact.id}><img src={editIcon} alt="edit" /></Link></td>
                         </tr>
