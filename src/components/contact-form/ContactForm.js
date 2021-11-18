@@ -26,6 +26,10 @@ const ContactForm = (props) => {
 
     const [formValue, setForm] = useState(initialValue);
     const [displayMessage, setDisplayMessage] = useState("");
+    const [nameError, setNameError] = useState(null);
+    const [addressError, setAddressError] = useState(null);
+    const [phoneError, setPhoneError] = useState(null);
+    const [validForm, setValidForm] = useState(false);
     const params = useParams();
 
     const contactService = new ContactService();
@@ -39,12 +43,20 @@ const ContactForm = (props) => {
     const getDataById = (id) => {
         contactService.getContact(id).then((data) => {
             console.log("Data is ", data);
-            let object = data.data;
+            let object = data.data.data;
             setData(object);
         }).catch((error) => {
             console.log("Error is ", error);
         });
     };
+
+    useEffect(() => {
+        try {
+            setValidForm(nameError.length === 0 && addressError.length === 0 && phoneError.length === 0);
+        } catch (e) {
+
+        }
+    }, [nameError, addressError, phoneError])
 
     const setData = (object) => {
         setForm({
@@ -53,6 +65,27 @@ const ContactForm = (props) => {
     };
 
     const changeValue = (event) => {
+        if (event.target.name === "name") {
+            if (!RegExp("^[A-Z][a-z]{2,}$").test(event.target.value)) {
+                setNameError("Invalid Name");
+            } else {
+                setNameError("");
+            }
+        }
+        else if (event.target.name === "phoneNumber") {
+            if (!RegExp("^[0-9]{2,3}\\s[0-9]{10}$").test(event.target.value)) {
+                setPhoneError("Invalid Phone");
+            } else {
+                setPhoneError("");
+            }
+        }
+        else if (event.target.name === "address") {
+            if (!RegExp("^(.{3,}\\s){2,}$").test(event.target.value)) {
+                setAddressError("Invalid Address");
+            } else {
+                setAddressError("");
+            }
+        }
         setForm({ ...formValue, [event.target.name]: event.target.value })
     }
 
@@ -68,26 +101,32 @@ const ContactForm = (props) => {
         }
         if (formValue.name.length < 1) {
             error.name = 'Name is required field'
+            setDisplayMessage(error.name);
             isError = true;
         }
-        if (formValue.state.length < 1) {
+        else if (formValue.state.length < 1) {
             error.state = 'State is required field'
+            setDisplayMessage(error.state);
             isError = true;
         }
-        if (formValue.city.length < 1) {
+        else if (formValue.city.length < 1) {
             error.city = 'City is required field'
+            setDisplayMessage(error.city);
             isError = true;
         }
-        if (formValue.address.length < 1) {
+        else if (formValue.address.length < 1) {
             error.address = 'Address is required field'
+            setDisplayMessage(error.address);
             isError = true;
         }
-        if (formValue.zip.length < 1) {
+        else if (formValue.zip.length < 1) {
             error.zip = 'Zip code is required field'
+            setDisplayMessage(error.zip);
             isError = true;
         }
-        if (formValue.phoneNumber.length < 1) {
+        else if (formValue.phoneNumber.length < 1) {
             error.phoneNumber = 'Phone Number is required field'
+            setDisplayMessage(error.phoneNumber);
             isError = true;
         }
         await setForm({ ...formValue, error: error })
@@ -147,6 +186,7 @@ const ContactForm = (props) => {
     }
 
     const reset = () => {
+        setNameError(null);
         setForm({ ...initialValue, contactId: formValue.contactId, isUpdate: formValue.isUpdate, city: '', state: 'none' });
     }
 
@@ -160,7 +200,7 @@ const ContactForm = (props) => {
                 <div className="form-head">
                     <h1 className="form-head-title">Person Address Form</h1>
                     <Link to="/home" className="close-button">
-                        <img src={{ closeButton }} alt="close button"
+                        <img src={closeButton} alt="close button"
                         /></Link>
                 </div>
                 <div className="row-content">
@@ -175,7 +215,7 @@ const ContactForm = (props) => {
                         onChange={changeValue}
                         required
                     />
-                    <error-output className="name-error" htmlFor="name"></error-output>
+                    <error-output className="name-error" htmlFor="name">{nameError}</error-output>
                 </div>
                 <div className="row-content">
                     <label className="label text" htmlFor="profile">Phone Number</label>
@@ -189,7 +229,7 @@ const ContactForm = (props) => {
                         onChange={changeValue}
                         required
                     />
-                    <error-output className="phone-error" htmlFor="tel"></error-output>
+                    <error-output className="phone-error" htmlFor="tel">{phoneError}</error-output>
                 </div>
                 <div className="row-content">
                     <div className="text-row">
@@ -205,7 +245,7 @@ const ContactForm = (props) => {
                             onChange={changeValue}
                             required
                         ></textarea>
-                        <error-output className="address-error" htmlFor="address"></error-output>
+                        <error-output className="address-error" htmlFor="address">{addressError}</error-output>
                     </div>
                 </div>
                 <div className="row-content location-row">
@@ -242,7 +282,7 @@ const ContactForm = (props) => {
                     </div>
                 </div>
                 <div className="buttonParent">
-                    <button type="submit" className="button addButton" id="addButton">
+                    <button disabled={!validForm} type="submit" className={"button addButton" + (validForm ? "" : " disabledButton")} id="addButton">
                         {formValue.isUpdate ? 'Update' : 'Add'}
                     </button>
                     <button type="reset" onClick={reset} className="resetButton button">Reset</button>

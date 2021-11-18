@@ -25,6 +25,7 @@
   }
   
   .addr-count {
+    margin-left: 20px;
     background-color: #008cff;
     color: #ffffff;
     border-radius: 42%;

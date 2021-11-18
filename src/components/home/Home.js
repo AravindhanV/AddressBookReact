@@ -19,8 +19,8 @@ class Home extends React.Component {
     getAllContacts = () => {
         contactService.getAllContacts()
             .then(responseData => {
-                console.log("Data received after GET Call " + responseData.data);
-                this.setState({ contactArray: responseData.data });
+                console.log("DATA:" + Object.values(responseData.data.data));
+                this.setState({ contactArray: responseData.data.data });
             }).catch(error => {
                 console.log("Error while fetching Contact List\nError : " + JSON.stringify(error));
             })

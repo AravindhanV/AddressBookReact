@@ -18,22 +18,22 @@ const Display = (props) => {
         <table id="table-display" className="table">
             <thead>
                 <tr>
-                    <th style={{ width: '12%' }}>
+                    <th style={{ width: '15%' }}>
                         Fullname
                     </th>
-                    <th style={{ width: '12%' }}>
+                    <th style={{ width: '15%' }}>
                         Address
                     </th>
-                    <th style={{ width: '12%' }}>
+                    <th style={{ width: '15%' }}>
                         City
                     </th>
-                    <th style={{ width: '12%' }}>
+                    <th style={{ width: '15%' }}>
                         State
                     </th>
-                    <th style={{ width: '12%' }}>
+                    <th style={{ width: '15%' }}>
                         Zip Code
                     </th>
-                    <th style={{ width: '12%' }}>
+                    <th style={{ width: '15%' }}>
                         Phone Number
                     </th>
                     <th></th>
@@ -42,7 +42,7 @@ const Display = (props) => {
             <tbody>
                 {
                     props.contactArray && props.contactArray.map((contact, ind) => (
-                        <tr key={ind}>
+                        <tr class="table-row" key={ind}>
                             <td>{contact.name}</td>
                             <td>{contact.address}</td>
                             <td>{contact.city}</td>

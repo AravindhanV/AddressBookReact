@@ -150,6 +150,25 @@
     margin-right: 30px;
   }
 
+  .addButton:hover {
+    background-color: #008cff;
+    color: white;
+  }
+
+  .resetButton:hover {
+    background-color: #707070;
+    color: white;
+  }
+
+  .disabledButton{
+    cursor: not-allowed;
+  }
+
+  .disabledButton:hover {
+    background-color: #e2e2e2;
+    color: #42515f;
+  }
+
   .displaymessage{
     color: red;
     text-align: center;
